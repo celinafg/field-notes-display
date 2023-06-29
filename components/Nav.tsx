@@ -9,9 +9,9 @@ export default function Nav() {
 					<li>
 						<a href="/">My Posts</a>
 					</li>
-					<li>
-						<a href="/posts">Add Post</a>
-					</li>
+					{/* <li>
+						<a href="/posts">view</a>
+					</li> */}
 				</ul>
 			</div>
 		</nav>

@@ -7,11 +7,11 @@ type Props = {
 
 //todo types
 type Post = {
-	_id: String;
-	tags: String[] | null;
-	text: String;
-	type: String;
-	LAST_UPDATE: String;
+	_id: string;
+	tags: string[];
+	text: string;
+	type: string;
+	LAST_UPDATE: string;
 };
 
 export async function getServerSideProps() {
@@ -48,6 +48,11 @@ export default function Posts(props: Props) {
 		}
 	};
 
+	const generateTags = (tags: string[]) => {
+		tags.map((tag) => {
+			return <p>{tag}</p>;
+		});
+	};
 	return (
 		<Layout>
 			<div className="posts-body">
@@ -60,6 +65,13 @@ export default function Posts(props: Props) {
 									<div className="post-item-details">
 										<h2>{post.type}</h2>
 										<p>{post.text}</p>
+										<p>{post.LAST_UPDATE}</p>
+										<ul>
+											{post.tags &&
+												post.tags.map((headers) => {
+													return <li key={headers}>{headers}</li>;
+												})}
+										</ul>
 									</div>
 									<div className="post-item-actions">
 										<a href={`/posts/${post._id} `}>Edit</a>
